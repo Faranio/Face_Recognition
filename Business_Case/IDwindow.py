@@ -7,48 +7,40 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from OneToOne import OneToOne
-from MainWindow import Ui_MainWindow
+import OneToOne
 
-class Ui_MainWindow(object):
-    def setupIDUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(290, 106)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+class IDwindow(QtWidgets.QWidget):
+
+    def __init__(self, parent = None):
+        super(IDwindow, self).__init__(parent)
+        self.setupUi(self)
+
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(400, 86)
+        self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setSizeIncrement(QtCore.QSize(100, 0))
+        self.label = QtWidgets.QLabel(Form)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit = QtWidgets.QLineEdit(Form)
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout.addWidget(self.lineEdit)
-        self.btnSubmit = QtWidgets.QPushButton(self.centralwidget)
-        self.btnSubmit.setObjectName("btnSubmit")
-        self.verticalLayout.addWidget(self.btnSubmit)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        self.btnPush = QtWidgets.QPushButton(Form)
+        self.btnPush.setObjectName("btnPush")
+        self.verticalLayout.addWidget(self.btnPush)
 
+        self.retranslateUi(Form)
+        self.btnPush.clicked.connect(self.returnText)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Please, enter here the ID of the staff:"))
-        self.btnSubmit.setText(_translate("MainWindow", "Submit"))
-        self.btnSubmit.clicked.connect(self.returnText)
-
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Please, enter here the ID of the staff:"))
-        self.btnSubmit.setText(_translate("MainWindow", "Submit"))
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.label.setText(_translate("Form", "Please, enter here the ID of the staff member:"))
+        self.btnPush.setText(_translate("Form", "Submit"))
 
     def returnText(self):
         text = self.lineEdit.text()
         self.hide()
-        self.runOneToOne(text)
+        OneToOne.OneToOne.runOneToOne(self, text)
