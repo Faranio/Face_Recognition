@@ -24,6 +24,9 @@ class OneToMany():
 
         # Get a reference to webcam #0 (the default one)
         self.video_capture = cv2.VideoCapture(0)
+        self.video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+        self.video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+        self.video_capture.set(cv2.CAP_PROP_FPS, 100)
 
         known_face_encodings = []
         known_face_names = []
@@ -81,7 +84,7 @@ class OneToMany():
             for (top, right, bottom, left), name in zip(face_locations, face_names):
                 
                 font = cv2.FONT_HERSHEY_DUPLEX
-                cv2.putText(frame, str(self.n), (20, 20), font, 1.0, (255, 255, 255), 1)
+                cv2.putText(frame, str(self.n), (0, 30), font, 1.0, (255, 255, 255), 1)
                     
                 if name != "Unknown":
                     
