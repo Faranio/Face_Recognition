@@ -1,28 +1,23 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 import MainWindow
-import OneToOne
-import OneToMany
+import IDwindow
 import face_recognition
 import cv2
 import time
 
-class ExampleApp(QtWidgets.QMainWindow, MainWindow.Ui_IDWindow, MainWindow.Ui_MainWindow, OneToOne.OneToOne, OneToMany.OneToMany):
+class ExampleApp(MainWindow.MainWindow):
 
 	def __init__(self, parent = None):
 		super(ExampleApp, self).__init__(parent)
-		self.setupMainUi(self)
-		self.btnOneToOne.clicked.connect(self.OneToOneFunction)
-		self.btnOneToMany.clicked.connect(self.runOneToMany)
-
-	def OneToOneFunction(self):
-		self.setupIDUi(self)
+		self.window = MainWindow.MainWindow()
 
 def main():
 	app = QtWidgets.QApplication(sys.argv)
 	form = ExampleApp()
+	form.setWindowTitle('Face Recognition v 1.0')
 	form.show()
-	app.exec_()
+	sys.exit(app.exec_())
 
 if __name__ == '__main__':
 	main()
