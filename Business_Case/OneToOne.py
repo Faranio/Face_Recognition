@@ -8,6 +8,10 @@ class OneToOne():
 		self.accepted = False
 		self.n = 150
 		self.video_capture = cv2.VideoCapture(0)
+		self.video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+		self.video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+		self.video_capture.set(cv2.CAP_PROP_FPS, 100)
+
 		id = str(id)
 
 		file_directory = "C:/Users/Farkhad/Desktop/methodpro/Business_Case/Staff/" + id + "/photo.jpg";
