@@ -100,9 +100,9 @@ class OneToOne():
 		        	cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 255, 0), cv2.FILLED)
 		        	font = cv2.FONT_HERSHEY_DUPLEX
 		        	cv2.putText(frame, "RECOGNIZED", (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
-		        	cv2.putText(frame, idNumber, (0, 415), font, 1.0, (255, 255, 255), 1)
-		        	cv2.putText(frame, staffName, (0, 445), font, 1.0, (255, 255, 255), 1)
-		        	cv2.putText(frame, staffSurname, (0, 475), font, 1.0, (255, 255, 255), 1)
+		        	cv2.putText(frame, idNumber, (0, 650), font, 1.0, (255, 255, 255), 1)
+		        	cv2.putText(frame, staffName, (0, 680), font, 1.0, (255, 255, 255), 1)
+		        	cv2.putText(frame, staffSurname, (0, 710), font, 1.0, (255, 255, 255), 1)
 		        	infoFile.close()
 
 		        else:
