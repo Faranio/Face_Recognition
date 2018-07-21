@@ -12,16 +12,7 @@ class OneToMany():
         dir = "C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/"
         list = os.listdir(dir) # dir is your directory path
         file_count = len(list)
-
-        # This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
-        # other example, but it includes some basic performance tweaks to make things run a lot faster:
-        #   1. Process each video frame at 1/4 resolution (though still display it at full resolution)
-        #   2. Only detect faces in every other frame of video.
-
-        # PLEASE NOTE: This example requires OpenCV (the `cv2` library) to be installed only to read from your webcam.
-        # OpenCV is *not* required to use the face_recognition library. It's only required if you want to run this
-        # specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
-
+        
         # Get a reference to webcam #0 (the default one)
         self.video_capture = cv2.VideoCapture(0)
         self.video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
@@ -31,9 +22,9 @@ class OneToMany():
         known_face_encodings = []
         known_face_names = []
 
-        for i in range(1, file_count):
+        for i in range(1, file_count + 1):
 
-            file_directory = "C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + ".jpg";
+            file_directory = "C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/photo.jpg";
             face_image = face_recognition.load_image_file(file_directory)
             face_encoding = face_recognition.face_encodings(face_image)[0]
             
@@ -88,9 +79,15 @@ class OneToMany():
                     
                 if name != "Unknown":
                     
-                    status = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/status.txt", "w")
+                    status = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/status.txt", "w")
                     status.write("Accept")
                     status.close()
+
+                    infoFile = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/info.txt", "r")
+                    info = infoFile.read()
+                    idNumber = info.rsplit('\n', 2)[0]
+                    staffName = info.rsplit('\n', 2)[1]
+                    staffSurname = info.rsplit('\n', 2)[2]
                 # Scale back up face locations since the frame we detected in was scaled to 1/4 size
                     self.accepted = True
                     top *= 4
@@ -105,6 +102,10 @@ class OneToMany():
                     cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 255, 0), cv2.FILLED)
                     font = cv2.FONT_HERSHEY_DUPLEX
                     cv2.putText(frame, "RECOGNIZED", (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+                    cv2.putText(frame, idNumber, (0, 650), font, 1.0, (255, 255, 255), 1)
+                    cv2.putText(frame, staffName, (0, 680), font, 1.0, (255, 255, 255), 1)
+                    cv2.putText(frame, staffSurname, (0, 710), font, 1.0, (255, 255, 255), 1)
+                    infoFile.close()
 
                 else:
                     
@@ -123,7 +124,7 @@ class OneToMany():
                     
                 if self.n == 0 and self.accepted == False:
                     cv2.putText(frame, "BOOOOOOOOOOM", (300, 310), font, 1.0, (255, 255, 255), 1)
-                    status = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/status.txt", "w")
+                    status = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/status.txt", "w")
                     status.write("Reject")
                     status.close()
                     break;
