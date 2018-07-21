@@ -43,6 +43,7 @@ class MainWindow(QtWidgets.QMainWindow, OneToMany.OneToMany):
         self.btnOneToMany.clicked.connect(self.runOneToMany)
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.resize(400, 25)
 
     def retranslateMainWindowUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -53,6 +54,3 @@ class MainWindow(QtWidgets.QMainWindow, OneToMany.OneToMany):
     def OneToOneFunction(self):
         self.dialog = IDwindow.IDwindow()
         self.dialog.show()
-
-    #def OneToManyFunction(self):
-        #Code for One-To-Many algorithm
