@@ -1,14 +1,6 @@
 # Face_Recognition
 Face Recognition for CPR of Prosecutor's General Office
 
-design.ui:
-
-  File which is made by Qt Designer on Python and gives the main window of the desktop application.
-  
-IDwindow.ui:
-
-  File which is made by Qt Designer on Python and gives the window for One-To-One algorithm, when this button is clicked in the main window.
-  
 MainWindow.py:
 
   Python file that has the code for the design of main window and can be executed (converted from design.ui).
@@ -31,7 +23,7 @@ main.py:
   
 Guests folder:
 
-  Photos and status.txt of guests.
+  Folders with IDs of guests, their photo.jpg, info.txt and status.txt.
   
 Staff folder:
 
