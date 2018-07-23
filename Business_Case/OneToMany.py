@@ -9,7 +9,7 @@ class OneToMany():
         self.accepted = False
         self.n = 200
 
-        dir = "C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/"
+        dir = "Guests/"
         list = os.listdir(dir) # dir is your directory path
         file_count = len(list)
         
@@ -24,7 +24,7 @@ class OneToMany():
 
         for i in range(1, file_count + 1):
 
-            file_directory = "C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/photo.jpg";
+            file_directory = "Guests/" + str(i) + "/photo.jpg";
             face_image = face_recognition.load_image_file(file_directory)
             face_encoding = face_recognition.face_encodings(face_image)[0]
             
@@ -79,11 +79,11 @@ class OneToMany():
                     
                 if name != "Unknown":
                     
-                    status = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/status.txt", "w")
+                    status = open("Guests/" + name + "/status.txt", "w")
                     status.write("Accept")
                     status.close()
 
-                    infoFile = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/info.txt", "r")
+                    infoFile = open("Guests/" + name + "/info.txt", "r")
                     info = infoFile.read()
                     idNumber = info.rsplit('\n', 2)[0]
                     staffName = info.rsplit('\n', 2)[1]
@@ -124,7 +124,7 @@ class OneToMany():
                     
                 if self.n == 0 and self.accepted == False:
                     cv2.putText(frame, "BOOOOOOOOOOM", (300, 310), font, 1.0, (255, 255, 255), 1)
-                    status = open("C:/Users/Farkhad/Desktop/methodpro/Business_Case/Guests/" + str(i) + "/status.txt", "w")
+                    status = open("Guests/" + name + "/status.txt", "w")
                     status.write("Reject")
                     status.close()
                     break;
