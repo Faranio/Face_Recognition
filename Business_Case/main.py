@@ -1,10 +1,6 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 import sys
 import MainWindow
-import IDwindow
-import face_recognition
-import cv2
-import time
 
 class ExampleApp(MainWindow.MainWindow):
 
