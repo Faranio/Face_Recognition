@@ -1,26 +1,44 @@
 # Face_Recognition
 Face Recognition for Prosecutor's General Office
 
-MainWindow.py:
+Branch Farkhad:
 
-  Python file that has the code for the design of main window and can be executed.
+  Guests folder:
+
+    Folders with IDs of people to find, their photo.jpg, info.txt and status.txt.
+    
+  FaceDetection.py:
   
-OneToMany.py:
-
-  Python file that has the One-To-Many algorithm.
+    Detecting faces using web-cam.
+    
+  FaceDetectionVideo.py:
   
-main.py:
-
-  The main file that needs to be executed in order to run the whole program.
+    Detecting faces in the provided video.
+    
+  FaceRecognition.py:
   
-Guests folder:
-
-  Folders with IDs of people to find, their photo.jpg, info.txt and status.txt.
+    Recognizing faces using web-cam after detecting them with FaceDetection.py.
+    
+  FaceRecognitionVideo.py:
   
-info.txt:
-
-  Short information about each person.
+    Recognizing faces in the provided video after detecting them with FaceDetectionVideo.py.
+    
+  KnownFaceEncoder.py:
   
-status.txt:
+    Automatically creating face encodings for the known face pictures. (Speeds us the process of face recognition)
 
-  File with information of whether to admin (Accept) or deny (Reject) the person.
+  MainWindow.py:
+
+    Python file that has the code for the design of main window for web-cam face detection and can be executed.
+
+  main.py:
+
+    The main file that needs to be executed in order to run the web-cam face detection and recognition.
+
+  info.txt:
+
+    Short information about each person.
+
+  status.txt:
+
+    File with information of whether to admin (Accept) or deny (Reject) the person.
