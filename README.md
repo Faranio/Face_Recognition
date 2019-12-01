@@ -1,30 +1,30 @@
 # Face_Recognition
 Face Recognition for CPR of Prosecutor's General Office
 
-MainWindow.py:
+<b>MainWindow.py</b>:
 
   Python file that has the code for the design of main window and can be executed (converted from design.ui).
   
-IDwindow.py:
+<b>IDwindow.py</b>:
 
   Python file that has the code for the One-To-One window that prompts for the ID of the staff member to find (converted from IDwindow.ui).
   
-OneToOne.py:
+<b>OneToOne.py</b>:
 
   Python file that has the One-To-One algorithm.
   
-OneToMany.py:
+<b>OneToMany.py</b>:
 
   Python file that has the One-To-Many algorithm.
   
-main.py:
+<b>main.py</b>:
 
   The main file that needs to be executed in order to run the whole program.
   
-Guests folder:
+<b>Guests folder</b>:
 
   Folders with IDs of guests, their photo.jpg, info.txt and status.txt.
   
-Staff folder:
+<b>Staff folder</b>:
 
   Photos, info.txt and status.txt of each staff member.
